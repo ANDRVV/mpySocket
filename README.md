@@ -5,10 +5,10 @@ A socket for the esp01 and esp01s.
 
 ## All Protocol
 
-TCP
-TCPv6 (IPv6)
-SSL
-SSLv6 (IPv6)
+- TCP
+- TCPv6 (IPv6)
+- SSL
+- SSLv6 (IPv6)
 
 ## What mpySocket can do
 
