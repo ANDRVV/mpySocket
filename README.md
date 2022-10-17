@@ -1,7 +1,29 @@
 # mpySocket
 A socket for the esp01 and esp01s.
 
-## Info
+# Info
+
+## All Protocol
+
+TCP
+TCPv6 (IPv6)
+SSL
+SSLv6 (IPv6)
+
+## What mpySocket can do
+
+- Verify if ESP01/ESP01s is started or it works;
+- Restart ESP01/ESP01s;
+- Get local IPv4;
+- Get local MAC Address;
+- Get WiFi Mode;
+- Set WiFi Mode (default is SoftAP+STA (3));
+- Scan Networks,
+- Connect/Disconnect to Network;
+- Create/Delete Server;
+- Connect/Disconnect to a server;
+- Send/Recv Message (with a specific buffer).
+
 
 # Example
 
