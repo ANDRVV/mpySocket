@@ -29,6 +29,8 @@ while True:
             pass
     except:
         pass
+socket.deleteServer()
+socket.disconnectNetwork()
 led1.value(0)
 led.value(0)
 
