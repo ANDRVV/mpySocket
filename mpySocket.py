@@ -277,7 +277,6 @@ class socket:
             return "NO CONNECTION FROM NETWORK" 
         
     def send(self, msg: str):
-        if len(msg.encode()) >= 8192:
             if self.networkConnected:
                 if self.serverConnected == True or self.serverCreated == True: 
                         response1 = _send_ESP01(self.UARTCode, "AT+CIPSENDL=0," + len(msg.encode()) + "\r\n")
@@ -286,17 +285,7 @@ class socket:
                 else:
                     return "NO CONNECTION ESTABLISHED"  
             else:
-                return "NO CONNECTION FROM NETWORK" 
-        else:
-            if self.networkConnected:
-                if self.serverConnected == True or self.serverCreated == True: 
-                        response1 = _send_ESP01(self.UARTCode, "AT+CIPSENDL=0," + len(msg.encode()) + "\r\n")
-                        response2 = _send_ESP01(self.UARTCode, msg + "\r\n")
-                        return response1 + response2
-                else:
-                    return "NO CONNECTION ESTABLISHED"  
-            else:
-                return "NO CONNECTION FROM NETWORK" 
+                return "NO CONNECTION FROM NETWORK"
             
     def recv(self, buffer: int):
         buffer = str(buffer)
