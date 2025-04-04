@@ -113,17 +113,14 @@ class socket():
         return response
     
     def deleteServer(self) -> str:
-        if self.networkConnected:
-            if self.serverCreated == True:
-                if self.serverConnected == False:
-                    response = _send_ESP01(self.UARTCode, "AT+CIPSERVER=0,1\r\n")
-                    return response
-                else:
-                    return "IMPOSSIBLE DELETE A NOT EXISTENT SERVER"
-            else:
-                return "SERVER NOT CREATED"
-        else:
+        if not self.networkConnected:
             return "NO CONNECTION FROM NETWORK"
+        if not self.serverCreated:
+            return "SERVER NOT CREATED"
+        if self.serverConnected:
+            return "IMPOSSIBLE DELETE A NOT EXISTENT SERVER"
+            
+        return _send_ESP01(self.UARTCode, "AT+CIPSERVER=0,1\r\n")
         
     def connect(self, host: str, port: int, protocol: str) -> str:
         if not self.networkConnected:
